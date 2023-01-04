@@ -8,9 +8,7 @@ public class FileReader {
 
     public Profile getDataFromFile(File file) {
         String fileContent = "";
-        FileInputStream input;
-        try {
-            input = new FileInputStream(file);
+        try (FileInputStream input = new FileInputStream(file)) {
             int ch;
             while ((ch=input.read()) != -1) {
                 fileContent = fileContent + (char)ch;
@@ -26,6 +24,5 @@ public class FileReader {
         String emailValue = abc[2].substring(abc[2].indexOf(" ") + 1, abc[2].indexOf("\r"));
         long phoneValue = Long.parseLong(abc[3].substring(abc[3].indexOf(" ") + 1, abc[3].indexOf("\r")));
         return new Profile(nameValue, ageValue, emailValue, phoneValue);
-//        return new Profile();
     }
 }
