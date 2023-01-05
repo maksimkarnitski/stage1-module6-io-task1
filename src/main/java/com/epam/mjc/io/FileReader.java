@@ -18,15 +18,12 @@ public class FileReader {
         }
 
         String[] abc = stringBuilder.toString().split("\r\n");
-        if (abc.length == 4) {
-            String nameValue = abc[0].substring(abc[0].indexOf(" ") + 1);
-            int ageValue = Integer.parseInt(abc[1].substring(abc[1].indexOf(" ") + 1));
-            String emailValue = abc[2].substring(abc[2].indexOf(" ") + 1);
-            long phoneValue = Long.parseLong(abc[3].substring(abc[3].indexOf(" ") + 1));
-            return new Profile(nameValue, ageValue, emailValue, phoneValue);
-        } else {
-            System.err.print("Not all expected parameters are presented in the file");
-            return new Profile();
-        }
+
+        String nameValue = abc[0].substring(abc[0].indexOf(" ") + 1);
+        int ageValue = Integer.parseInt(abc[1].substring(abc[1].indexOf(" ") + 1));
+        String emailValue = abc[2].substring(abc[2].indexOf(" ") + 1);
+        long phoneValue = Long.parseLong(abc[3].substring(abc[3].indexOf(" ") + 1));
+
+        return new Profile(nameValue, ageValue, emailValue, phoneValue);
     }
 }
